@@ -81,7 +81,7 @@ public class Game extends JPanel implements KeyListener{
             if(gunman.health > 0 && lv==350){
                 g.drawImage(ev,0,0,0,0,this);
                 g.drawImage(win,300,200,500,200,this);
-                g.drawImage(gift,400,300,200,200,this);
+                g.drawImage(gift,400,250,200,200,this);
                 
             }
             
