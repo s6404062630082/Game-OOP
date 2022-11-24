@@ -58,7 +58,7 @@ public class Game extends JPanel implements KeyListener{
         Graphics2D st =  (Graphics2D) g ;
         g.drawImage(bg1,0,0,getWidth(),getHeight(),this);
         
-       //if(this.X==1){
+       if(this.X==1){
             g.drawImage(img1,0,0,getWidth(),getHeight(),this);
 
             g.drawImage(gm,gunman.x, gunman.y, gunman.gunmanSize,200,this);
@@ -118,7 +118,7 @@ public class Game extends JPanel implements KeyListener{
             }
               t++;
 
-    //}
+    }
     }
     
     private Wave[] makeWaveSet(int waveNumber){ //สร้างเวฟ
@@ -161,9 +161,9 @@ public class Game extends JPanel implements KeyListener{
 //            }
         
         }
-//        if(e.getKeyCode()==10){
-//                    this.X=1;  
-//            }
+        if(e.getKeyCode()==10){
+                    this.X=1;  
+            }
         
         
     }
@@ -188,5 +188,4 @@ public class Game extends JPanel implements KeyListener{
 
 
     
-
 
