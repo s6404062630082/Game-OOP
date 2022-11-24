@@ -22,7 +22,7 @@ import javax.swing.JTextField;
 public class Game extends JPanel implements KeyListener{
     int lv=0;
     int t=0;
-    public int enter=0;
+    public int X=0;
     GunMan gunman = new GunMan(100,300,100,500); 
     Wave[] waveSet = makeWaveSet(2);
     
@@ -36,7 +36,7 @@ public class Game extends JPanel implements KeyListener{
     Image  bar2 = new ImageIcon("/Users/lookpeartayida/NetBeansProjects/Game/src/main/img/bar2.PNG").getImage();
     Image  win = new ImageIcon("/Users/lookpeartayida/NetBeansProjects/Game/src/main/img/win.PNG").getImage();
     Image  gift = new ImageIcon("/Users/lookpeartayida/NetBeansProjects/Game/src/main/img/gift.PNG").getImage();
-    Image  bgst = new ImageIcon("/Users/lookpeartayida/NetBeansProjects/Game/src/main/img/bg1.png").getImage();
+    Image  bg1 = new ImageIcon("/Users/lookpeartayida/NetBeansProjects/Game/src/main/img/bg1.png").getImage();
     
     public JTextField jtfScreen;
     long lastPress = 0;
@@ -52,15 +52,15 @@ public class Game extends JPanel implements KeyListener{
     @Override
     public void paint(Graphics g){
         
+        
         super.paint(g);
-        
         Graphics2D g2d = (Graphics2D)g;
-        Graphics2D st =  (Graphics2D) g;
-        g.drawImage(bgst,0,0,getWidth(),getHeight(),this);
+        Graphics2D st =  (Graphics2D) g ;
+        g.drawImage(bg1,0,0,getWidth(),getHeight(),this);
         
-        if(this.enter==10){
-            
+       //if(this.X==1){
             g.drawImage(img1,0,0,getWidth(),getHeight(),this);
+
             g.drawImage(gm,gunman.x, gunman.y, gunman.gunmanSize,200,this);
             g2d.setColor(Color.black);
             g2d.drawString("HP ", 60, 26);
@@ -85,7 +85,7 @@ public class Game extends JPanel implements KeyListener{
                 if(gunman.health > 0 && lv==350){
                     g.drawImage(ev,0,0,0,0,this);
                     g.drawImage(win,300,200,500,200,this);
-                    g.drawImage(gift,400,250,200,200,this);
+                    g.drawImage(gift,400,300,200,200,this);
 
                 }
 
@@ -118,7 +118,7 @@ public class Game extends JPanel implements KeyListener{
             }
               t++;
 
-        }
+    //}
     }
     
     private Wave[] makeWaveSet(int waveNumber){ //สร้างเวฟ
@@ -147,18 +147,24 @@ public class Game extends JPanel implements KeyListener{
 
     @Override
     public void keyPressed(KeyEvent e) {
-        if(e.getKeyCode()==10){
-             System.out.println(e.getKeyCode());
-                this.enter=10;          
-        }
+        
         if(System.currentTimeMillis()-lastPress>400){
                 System.out.println(e.getKeyCode());
             if(e.getKeyCode()==38||e.getKeyCode()==32){
                 gunman.jump(this);
                 this.repaint();
             
-            } lastPress= System.currentTimeMillis();
+            }lastPress= System.currentTimeMillis();
+            
+//            if(e.getKeyCode()==10){
+//                    this.X=1;  
+//            }
+        
         }
+//        if(e.getKeyCode()==10){
+//                    this.X=1;  
+//            }
+        
         
     }
 
@@ -182,6 +188,5 @@ public class Game extends JPanel implements KeyListener{
 
 
     
-
 
 
